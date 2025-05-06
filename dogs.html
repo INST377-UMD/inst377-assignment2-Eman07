@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Activities - Dogs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css">
+    <style>
+        /* Custom carousel styles */
+        .carousel-wrapper {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+        }
+        
+        #dog-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #dog-carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        
+        #dog-carousel img.active {
+            display: block;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .prev-arrow {
+            left: 10px;
+        }
+        
+        .next-arrow {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stocks</a></li>
+            <li><a href="dogs.html">Dogs</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Dogs Information</h1>
+        
+        <div class="dog-carousel-container">
+            <h2>Random Dog Images</h2>
+            <div class="carousel-wrapper">
+                <div id="dog-carousel">
+                    <!-- Dog images will be loaded here by JavaScript -->
+                    <p>Loading dog images...</p>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev-btn" class="carousel-arrow prev-arrow">&#10094;</button>
+                    <button id="next-btn" class="carousel-arrow next-arrow">&#10095;</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dog-breeds-container">
+            <h2>Dog Breeds</h2>
+            <div id="breed-buttons" class="breed-buttons-container">
+                <!-- Breed buttons will be generated here by JavaScript -->
+            </div>
+        </div>
+        
+        <div id="breed-info-container" class="breed-info-container" style="display: none;">
+            <!-- Breed information will be displayed here when a breed button is clicked -->
+        </div>
+    </main>
+
+    <div class="audio-instructions">
+        <h2>Audio Navigation Instructions</h2>
+        <p>You can use the following voice commands to navigate this website:</p>
+        <ul>
+            <li>"Hello" - Alerts with Hello World</li>
+            <li>"Change the color to [color]" - Changes the background color of the page</li>
+            <li>"Navigate to [page]" - Navigates to the specified page (Home, Stocks, or Dogs)</li>
+            <li>"Load Dog Breed [breed name]" - Displays information for the specified dog breed</li>
+        </ul>
+        <div class="audio-controls">
+            <button id="turnOnAudio" class="button-3">Turn On Audio</button>
+            <button id="turnOffAudio" class="button-3">Turn Off Audio</button>
+        </div>
+    </div>
+
+    <script src="dogs.js"></script>
+</body>
+</html>
